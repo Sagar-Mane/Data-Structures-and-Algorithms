@@ -1,1 +1,1 @@
-This folder contains notes.
+This folder will contain notes of data structures and algorithms.
