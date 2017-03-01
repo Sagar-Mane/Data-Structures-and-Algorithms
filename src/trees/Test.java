@@ -12,10 +12,10 @@ public class Test {
 		b1.insert(60);
 		b1.insert(80);
 		b1.insert(90);
-		//b1.delete(30);
-		//b1.preOrder(root);
-		//b1.delete(20);
-		//b1.preOrder(root);
+		b1.delete(30);
+		b1.preOrder(root);
+		b1.delete(20);
+		b1.preOrder(root);
 		b1.delete(70);
 		
 	}
