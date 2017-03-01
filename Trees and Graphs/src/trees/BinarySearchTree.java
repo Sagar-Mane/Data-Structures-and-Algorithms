@@ -11,6 +11,7 @@ public class BinarySearchTree{
 	//iterative solution for inserting.
 	public void insert(int key){
 	
+	
 		TreeNode newNode=new TreeNode(key, null, null);
 		TreeNode temp=root;
 		
