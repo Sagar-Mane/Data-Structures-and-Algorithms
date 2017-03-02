@@ -251,5 +251,40 @@ public class BinarySearchTree{
 		
 	}
 	
+	public boolean isBalanced(TreeNode root){
+	
+		int left_depth=0;
+		int right_depth=0;
+		TreeNode temp=root;
+		while(temp!=null){
+			if(temp.getLeftChild()!=null){
+				left_depth++;
+				temp=temp.getLeftChild();
+			}
+			else if(temp.getLeftChild()==null){
+				temp=null;
+			}
+			
+		}
+		temp=root;
+		while(temp!=null){
+			if(temp.getRightChild()!=null){
+				right_depth++;
+				temp=temp.getRightChild();
+			}
+			else if(temp.getRightChild()==null){
+				temp=null;
+			}
+			
+		}
+		//System.out.println("max depth="+left_depth);
+		//System.out.println("min depth="+right_depth);
+		
+		if(left_depth-right_depth==0||left_depth-right_depth==-1||left_depth-right_depth==1){
+			return true;
+		}
+		else
+		return false;
+	}
 	
 }
