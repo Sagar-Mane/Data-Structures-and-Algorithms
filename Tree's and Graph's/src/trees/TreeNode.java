@@ -35,4 +35,5 @@ public class TreeNode {
 	public TreeNode getRightChild(){
 		return rightchild;
 	}
+	
 }

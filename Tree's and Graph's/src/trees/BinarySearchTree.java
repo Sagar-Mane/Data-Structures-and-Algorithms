@@ -1,5 +1,8 @@
 package trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree{
 
 	TreeNode root;
@@ -286,5 +289,30 @@ public class BinarySearchTree{
 		else
 		return false;
 	}
-	
+
+	//recursive function for calculating height of binary tree
+	public int heightBinaryTree(TreeNode root){
+		
+		if(root==null){
+			//System.out.println("reached end returning 0");
+			return -1;
+		}
+		else{
+			int left=heightBinaryTree(root.getLeftChild())+1;
+			int right=heightBinaryTree(root.getRightChild())+1;
+			
+			if(left>right)
+				{
+				//System.out.println("printing after iterations left greater"+left);
+				return left;
+				}
+			else
+				{
+				//System.out.println("printing after iterations right greater"+right);
+				return right;
+				}
+		}
+		
+		
+	}
 }

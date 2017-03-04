@@ -4,15 +4,15 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		TreeNode root=new TreeNode(50, null, null);
+		TreeNode root=new TreeNode(3, null, null);
 		BinarySearchTree b1=new BinarySearchTree(root);
-		b1.insert(30);
-		b1.insert(20);
-		b1.insert(10);
-		b1.insert(70);
-		//b1.preOrder(root);
-		
-		System.out.println(b1.isBalanced(root));
+		b1.insert(2);
+		b1.insert(5);
+		/*b1.insert(5);
+		b1.insert(4);
+		b1.insert(6);
+		b1.insert(7);*/
+		System.out.println(b1.heightBinaryTree(root));
 	}
 
 }
