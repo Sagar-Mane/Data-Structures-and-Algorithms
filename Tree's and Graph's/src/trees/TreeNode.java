@@ -12,6 +12,7 @@ public class TreeNode {
 		this.leftchild=leftchild;
 		this.rightchild=rightchild;
 	}
+	public TreeNode(){}
 	
 	public void setKey(int key){
 		this.key=key;

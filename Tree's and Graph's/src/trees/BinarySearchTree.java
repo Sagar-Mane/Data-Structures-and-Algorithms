@@ -10,8 +10,11 @@ public class BinarySearchTree{
 	public BinarySearchTree(TreeNode root){
 		this.root=root;
 	}
-	
-	//iterative solution for inserting.
+	public BinarySearchTree(){}
+	/**
+	 * Iterative solution for inserting an element into bst
+	 * @param data to be inserted
+	 */
 	public void insert(int key){
 	
 	
@@ -51,7 +54,10 @@ public class BinarySearchTree{
 		
 	}
 	
-	//Recursive depth first traversals
+	/**
+	 * Recursive PreOrder traversal of tree.
+	 * @param root
+	 */
 	public void preOrder(TreeNode root){
 		if(root!=null){
 			System.out.println(root.getKey());
@@ -59,6 +65,10 @@ public class BinarySearchTree{
 			preOrder(root.getRightChild());
 		}
 	}
+	/**
+	 * Recursive PostOrder traversal of tree.
+	 * @param root
+	 */
 	public void postOrder(TreeNode root){
 		if(root!=null){
 			postOrder(root.getLeftChild());
@@ -66,6 +76,10 @@ public class BinarySearchTree{
 			System.out.println(root.getKey());
 		}
 	}
+	/**
+	 * Recursive inOrder traversal of tree.
+	 * @param root
+	 */
 	public void inOrder(TreeNode root){
 		if(root!=null){
 			inOrder(root.getLeftChild());
@@ -74,7 +88,12 @@ public class BinarySearchTree{
 		}
 	}
 	
-	//iterative search
+	/**
+	 * Iterative solution for searching element into tree.
+	 * @param root
+	 * @param key
+	 * @return true if element found
+	 */
 	public boolean search(TreeNode root,int key){
 		
 		while(root!=null){
@@ -99,7 +118,10 @@ public class BinarySearchTree{
 		return false;
 	}
 	
-	//deleting node from existing tree.
+	/**
+	 * Deleting a node from existing tree.
+	 * @param data of the node to be deleted.
+	 */
 	public void delete(int key){
 		/*
 		 * There are three conditions
@@ -218,6 +240,10 @@ public class BinarySearchTree{
 			
 		}
 	}
+	/**
+	 * Deleting node with two children
+	 * @param key
+	 */
 	public void deleteWithTwoChildren(int key){
 		System.out.println("Reporting from function deleteNode Which has two children");
 		TreeNode temp=root;
@@ -253,7 +279,11 @@ public class BinarySearchTree{
 		}
 		
 	}
-	
+	/**
+	 * Iterative solution to check if the tree is balanced or not.
+	 * @param root
+	 * @return true if balanced tree.
+	 */
 	public boolean isBalanced(TreeNode root){
 	
 		int left_depth=0;
@@ -290,7 +320,11 @@ public class BinarySearchTree{
 		return false;
 	}
 
-	//recursive function for calculating height of binary tree
+	/**
+	 * Recursive solution for calculating height of binary tree.
+	 * @param root
+	 * @return height of B.T.
+	 */
 	public int heightBinaryTree(TreeNode root){
 		
 		if(root==null){
@@ -309,7 +343,10 @@ public class BinarySearchTree{
 		
 		
 	}
-	
+	/**
+	 * Iterative solution to find level order traversal of binary tree.
+	 * @param root
+	 */
 	public void levelOrderTraversal(TreeNode root){
 		Queue<TreeNode> q=new LinkedList<>();
 		if(root!=null){
@@ -329,4 +366,49 @@ public class BinarySearchTree{
 		
 		
 	}
+	
+	/**
+	 * Recursive solution to check if tree is balanced.
+	 * @param root
+	 * @return true if binary tree is balanced
+	 */
+	public boolean isBalancedRecursive(TreeNode root){
+		
+		if(root==null){
+			return true;
+		}
+		else{
+			int left=heightBinaryTree(root.getLeftChild());
+			int right=heightBinaryTree(root.getRightChild());
+			
+			if((left-right==0||left-right==1||left-right==-1)&&isBalanced(root.getLeftChild())&&isBalanced(root.getRightChild())){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/*
+	 * Used while creating binary tree from sorted array.
+	 * It works recursively to insert left subarray into left sub tree and right subarray into right subtree.
+	 */
+	public TreeNode addToTree(int arr[],int start, int end){
+		int middle=(start+end)/2;
+		TreeNode n=new TreeNode(arr[middle], null, null);
+		if(end<start){
+			return null;
+		}
+		n.setLeftChild(addToTree(arr,start,middle-1));
+		n.setRightChild(addToTree(arr, middle+1, end));
+		return n;
+	
+	}
+	
+	/*
+	 * Used to create binary tree from sorted array.
+	 */
+	public TreeNode arrayToBT(int arr[]){
+		return addToTree(arr, 0, arr.length-1);
+	}
+	
 }
