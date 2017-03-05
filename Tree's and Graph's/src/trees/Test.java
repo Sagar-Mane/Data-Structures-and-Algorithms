@@ -4,15 +4,16 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		TreeNode root=new TreeNode(3, null, null);
+		TreeNode root=new TreeNode(20, null, null);
 		BinarySearchTree b1=new BinarySearchTree(root);
-		b1.insert(2);
-		b1.insert(5);
-		/*b1.insert(5);
-		b1.insert(4);
-		b1.insert(6);
-		b1.insert(7);*/
-		System.out.println(b1.heightBinaryTree(root));
+		b1.insert(10);
+		b1.insert(15);
+		b1.insert(25);
+		b1.insert(30);
+		b1.insert(28);
+		b1.insert(35);
+		
+		b1.levelOrderTraversal(root);
 	}
 
 }

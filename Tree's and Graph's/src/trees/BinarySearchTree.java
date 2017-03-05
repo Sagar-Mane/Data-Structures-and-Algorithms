@@ -1,5 +1,8 @@
 package trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree{
 
 	TreeNode root;
@@ -291,7 +294,6 @@ public class BinarySearchTree{
 	public int heightBinaryTree(TreeNode root){
 		
 		if(root==null){
-			//System.out.println("reached end returning 0");
 			return -1;
 		}
 		else{
@@ -299,15 +301,30 @@ public class BinarySearchTree{
 			int right=heightBinaryTree(root.getRightChild())+1;
 			
 			if(left>right)
-				{
-				//System.out.println("printing after iterations left greater"+left);
 				return left;
-				}
 			else
-				{
-				//System.out.println("printing after iterations right greater"+right);
 				return right;
-				}
+				
+		}
+		
+		
+	}
+	
+	public void levelOrderTraversal(TreeNode root){
+		Queue<TreeNode> q=new LinkedList<>();
+		if(root!=null){
+			q.add(root);
+		}
+		
+		while(!q.isEmpty()){
+			TreeNode n=q.remove();
+			System.out.println(n.getKey());
+			if(n.getLeftChild()!=null){
+				q.add(n.getLeftChild());
+			}
+			if(n.getRightChild()!=null){
+				q.add(n.getRightChild());
+			}
 		}
 		
 		
