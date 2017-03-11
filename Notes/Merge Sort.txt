@@ -1,0 +1,122 @@
+----------Merge Sort----------
+
+Merge sort is a sorting technique based on divide and conquer technique.
+It's worst case time complexity is O(nlogn). Merge sort divides the array into 
+equal halves and then combines them into sorted manner. 
+
+example:
+
+Array to be sorted:
+
+	[14	33	27	10	35	19	42	44]
+
+we know that the merge sort first divides the array into equal halves until atomic values are achieved.
+
+So for a given array it will be divided into two seperate arrays of size 4 
+
+	[14,33,27,10]		[35,19,42,44]
+
+This does not change the sequence of elements from the original list.
+
+Now we further divide the left array into 2 arrays of size 2, similarly right array into 2 arrays.
+
+	[14,33]   [27,10]   [35,19]    [42,44]
+
+
+Still we haven't got automic values so we will divide the array further like,
+
+	[14]	[33]	[27]	[10]	[35]	[19]	[42]	[44]
+
+Now we got automic values. This is the point where we will start merging.
+We will merge the arrays with automic values in exactly same order as they were divided.
+
+**We first compare the element for each list and combine them into another list in sorted manner. 
+
+	[14,33]	  [10,27]    [19,35]	[42,44]
+
+In the next iteration we will continue merging further
+
+	[10,14,27,33]	[19,35,42,44]
+
+Now we have two sorted arrays we will merge them into single sorted array
+
+	[10,14,19,27,33,35,42,44]
+
+
+Algorithm-
+Step1: If there is only one element in the array it is already sorted return.
+step2: Divide the array recursively into two arrays until it can no more be divided. (Till we achieve automic values).
+step3: Merge two smaller arrays into resulting array in sorted order.
+
+
+Pseudo code-
+	There will be two functions- One for dividing and other for merging
+
+	function divide(array[])
+		{
+			if array size =1
+				return
+			else
+				left array=[Array from 0-lengh/2]
+				right array=[Array from length/2-length]
+				
+				left=divide(left)	
+				right=divide(right)
+			
+			return merge(left,right)			//passing smaller arrays for merging	
+		}	
+	function merge(left[],right[])
+	{
+		Result[];
+		i=0	//index of smallest unpicked element in left array
+		j=0	//index of smallest unpicked element in right array
+		k=0	//index where element needs to be placed in the resulting array.
+		
+		while (i<lengh of left array && j<length of right array)
+		{
+			if(left[i]<=right[i])
+				result[k]=left[i];
+				incremement k and i
+			else
+				result[k]=right[j];
+				increment k and j
+		}
+		//For any left overs in left array
+		
+		while(i<length of left array)
+		{
+			result[k]=left[i]
+			incremenet k and i	
+		}
+		//For any left overs in right array
+		while(j<length of right array)
+		{
+			result[k]=right[j]
+			incremenet k and j
+		}
+	return Result;
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
