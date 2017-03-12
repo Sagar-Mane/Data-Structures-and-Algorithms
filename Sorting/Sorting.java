@@ -2,6 +2,7 @@ package sorting;
 
 public class Sorting {
 
+	//Merge Sort.
 	
 	/**
 	 * Function for dividing array into single possible value and sorting 
@@ -67,4 +68,48 @@ public class Sorting {
 		return result;
 	}
 
+	//Quick Sort.
+	/**
+	 * Recursive Quick Sort function.
+	 * @param Array to be sorted.
+	 * @param Start Index.
+	 * @param End Index.
+	 * @return Sorted Array.
+	 */
+	public int[] quickSort(int arr[],int start,int end){
+		
+		if(start>=end)
+			return arr;
+		
+		int partition_index=partition(arr,start,end);
+		quickSort(arr,start,partition_index-1);
+		quickSort(arr,partition_index+1,end);
+		return arr;
+	}
+	/**
+	 * Partition function for quick sort.
+	 * @param Array to be sorted.
+	 * @param Start Index.
+	 * @param End Index.
+	 * @return
+	 */
+	public int partition(int arr[],int start,int end){
+		int partition_index=start;
+		int pivot=arr[end];
+		for(int i=start;i<end;i++){
+			System.out.println("inside for i="+i+"p="+partition_index);
+			if(arr[i]<=pivot){
+				int temp=arr[i];
+				arr[i]=arr[partition_index];
+				arr[partition_index]=temp;
+				partition_index=partition_index+1;
+			}
+			
+		}
+		int temp=arr[partition_index];
+		arr[partition_index]=arr[end];
+		arr[end]=temp;
+		return partition_index;
+	}
+	
 }
